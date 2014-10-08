@@ -159,6 +159,7 @@ imap <F3> <Esc>:TlistToggle<CR>
 if has('python')
 python << EOF
 import os, sys, vim
+import warnings
 
 #check if in virtualenv
 if 'VIRTUAL_ENV' in os.environ:
@@ -169,6 +170,9 @@ if 'VIRTUAL_ENV' in os.environ:
 
 pypaths = [ p.replace(' ', r'\ ') for p in sys.path if os.path.isdir(p) ]
 tags_paths = filter(os.path.exists, [os.path.join(p, 'tags') for p in pypaths])
+
+if not tags_paths:
+    warnings.warn('Not any tags found in python `sys.path`, which can be generated with ctags')
 
 vim.command(r"set path+=%s" % ','.join(pypaths))
 vim.command(r"set tags+=%s" % ','.join(tags_paths))
