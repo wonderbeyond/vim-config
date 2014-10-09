@@ -26,8 +26,6 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'wonderbeyond/template.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'terryma/vim-multiple-cursors'
 
 "Language base support
@@ -42,9 +40,11 @@ NeoBundle 'hynek/vim-python-pep8-indent' "Good & Suitable
 
 "Dev enhancement
 NeoBundle 'Crapworks/python_fn.vim'
-NeoBundle 'vim-scripts/Pydiction' "Tab-complete Python code *using dictionary* (`g:pydiction_location`)
-NeoBundle 'garbas/vim-snipmate'
-NeoBundle 'honza/vim-snippets'
+"NeoBundle 'vim-scripts/Pydiction'           "Tab-complete Python code *using dictionary* (`g:pydiction_location`)
+NeoBundle 'tomtom/tlib_vim'                 "required by SnipMate
+NeoBundle 'MarcWeber/vim-addon-mw-utils'    "required by SnipMate
+NeoBundle 'garbas/vim-snipmate'             "SnipMate aims to provide support for textual snippets
+NeoBundle 'honza/vim-snippets'              "provide snippets work with SnipMate
 NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'tmhedberg/matchit'
 
@@ -102,7 +102,7 @@ set expandtab
 autocmd FileType make setlocal noexpandtab
 autocmd FileType python setlocal ft=python.django
 "autocmd FileType python setlocal dict=~/.vim/dict/pycomplete-dict
-autocmd FileType python setlocal omnifunc=pysmell#Complete
+"autocmd FileType python setlocal omnifunc=pysmell#Complete
 
 autocmd FileType html,xhtml setlocal ft=htmldjango.html
 autocmd FileType html,xhtml setlocal expandtab shiftwidth=4 softtabstop=4
