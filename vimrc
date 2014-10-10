@@ -25,8 +25,8 @@ NeoBundle 'mbriggs/mark.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'wonderbeyond/template.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
+"NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'majutsushi/tagbar'
 
 "Language base support
 NeoBundle 'othree/html5.vim'
@@ -40,13 +40,22 @@ NeoBundle 'hynek/vim-python-pep8-indent' "Good & Suitable
 
 "Dev enhancement
 NeoBundle 'Crapworks/python_fn.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'vim-scripts/Pydiction'           "Tab-complete Python code *using dictionary* (`g:pydiction_location`)
+NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'tomtom/tlib_vim'                 "required by SnipMate
 NeoBundle 'MarcWeber/vim-addon-mw-utils'    "required by SnipMate
 NeoBundle 'garbas/vim-snipmate'             "SnipMate aims to provide support for textual snippets
+"NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'              "provide snippets work with SnipMate
 NeoBundle 'mattn/emmet-vim'
-"NeoBundle 'tmhedberg/matchit'
+NeoBundle 'tmhedberg/matchit'               "using % to match more
+
+"Utils
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'airblade/vim-gitgutter'          "shows git diff in the 'gutter' (sign column).
+"NeoBundle 'bling/vim-airline'
+NeoBundle 'scrooloose/nerdcommenter'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -149,11 +158,21 @@ let g:pydiction_location = "~/.vim/bundle/Pydiction/complete-dict,/usr/share/dic
 let g:user_emmet_leader_key = '<C-Z>'
 " Note that the trailing , still needs to be entered, so the new keymap would be <C-Z>,.
 
-" For taglist
-let Tlist_Use_Right_Window = 1
-let Tlist_Use_SingleClick = 1
-map <F3> <Esc>:TlistToggle<CR>
-imap <F3> <Esc>:TlistToggle<CR>
+"" For taglist
+"let Tlist_Use_Right_Window = 1
+"let Tlist_Use_SingleClick = 1
+"map <F3> <Esc>:TlistToggle<CR>
+"imap <F3> <Esc>:TlistToggle<CR>
+
+" For tagbar
+nmap <F3> :TagbarToggle<CR>
+imap <F3> :TagbarToggle<CR>
+
+let g:airline#extensions#tabline#enabled = 1 "enable vim-airline
+
+" for YCM, fix conflicts of <tab> key with SnipMate
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 
 " Send python path to vim path
 if has('python')
