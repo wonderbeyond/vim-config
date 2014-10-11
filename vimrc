@@ -166,7 +166,7 @@ let g:user_emmet_leader_key = '<C-Z>'
 
 " For tagbar
 nmap <F3> :TagbarToggle<CR>
-imap <F3> :TagbarToggle<CR>
+imap <F3> <Esc>:TagbarToggle<CR>
 
 let g:airline#extensions#tabline#enabled = 1 "enable vim-airline
 
