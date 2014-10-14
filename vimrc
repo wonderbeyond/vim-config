@@ -120,6 +120,12 @@ autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
 
 au BufRead,BufNewFile *.txt,*.md setlocal ft=markdown
 au BufRead,BufNewFile *.js setlocal ft=javascript syntax=jquery
+
+augroup VimCSS3Syntax
+    autocmd!
+    autocmd FileType css setlocal iskeyword+=-
+augroup END
+
 "END filetype custom-----------------------------------
 
 set showcmd
