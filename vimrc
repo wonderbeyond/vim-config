@@ -119,7 +119,6 @@ autocmd FileType html,xhtml setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
 
 au BufRead,BufNewFile *.txt,*.md setlocal ft=markdown
-au BufRead,BufNewFile *.js setlocal ft=javascript syntax=jquery
 
 augroup VimCSS3Syntax
     autocmd!
