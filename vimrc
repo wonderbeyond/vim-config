@@ -135,8 +135,7 @@ set wrap
 set linebreak
 "set virtualedit=all
 
-map <F2> <Esc>:NERDTreeToggle<CR>
-imap <F2> <Esc>:NERDTreeToggle<CR>
+nmap <C-]> <ESC>g<C-]>
 
 " 保存时自动编译less到css
 function! Wless()
@@ -164,6 +163,9 @@ let g:user_emmet_leader_key = '<C-Z>'
 "map <F3> <Esc>:TlistToggle<CR>
 "imap <F3> <Esc>:TlistToggle<CR>
 
+" For NERDTree
+nmap <F2> <Esc>:NERDTreeToggle<CR>
+imap <F2> <Esc>:NERDTreeToggle<CR>
 " For tagbar
 nmap <F3> :TagbarToggle<CR>
 imap <F3> <Esc>:TagbarToggle<CR>
