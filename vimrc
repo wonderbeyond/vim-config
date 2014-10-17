@@ -20,13 +20,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 ""NeoBundle 'kien/ctrlp.vim'
 ""NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'jkeylu/vimcdoc'
-NeoBundle 'FredKSchott/CoVim'
+"NeoBundle 'FredKSchott/CoVim'
 NeoBundle 'mbriggs/mark.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'wonderbeyond/template.vim'
 NeoBundle 'scrooloose/nerdtree'
 "NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'szw/vim-ctrlspace'
 
 "Language base support
 NeoBundle 'othree/html5.vim'
@@ -36,9 +37,10 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'hdima/python-syntax'
-NeoBundle 'hynek/vim-python-pep8-indent' "Good & Suitable
+NeoBundle 'hynek/vim-python-pep8-indent' "Good & Suitable for me
 
 "Dev enhancement
+NeoBundle 'scrooloose/syntastic' "Syntax checking
 NeoBundle 'Crapworks/python_fn.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'vim-scripts/Pydiction'           "Tab-complete Python code *using dictionary* (`g:pydiction_location`)
@@ -58,7 +60,7 @@ NeoBundle 'airblade/vim-gitgutter'          "shows git diff in the 'gutter' (sig
 NeoBundle 'scrooloose/nerdcommenter'
 
 " You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+"NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Required:
 call neobundle#end()
@@ -140,6 +142,7 @@ set wrap
 set linebreak
 "set virtualedit=all
 
+let g:mapleader = ','
 nmap <C-]> <ESC>g<C-]>
 
 " 保存时自动编译less到css
@@ -150,6 +153,9 @@ endfunction
 command Wless call Wless()
 
 " 为一些插件而设置
+
+"Set checkers for syntastic
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " 激活模板
 let g:enable_template = 1
