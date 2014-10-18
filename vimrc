@@ -206,8 +206,8 @@ tags_paths = filter(os.path.exists, [os.path.join(p, 'tags') for p in pypaths])
 if not tags_paths:
     warnings.warn('Not any tags found in python `sys.path`, which can be generated with ctags')
 
-vim.command(r"set path+=%s" % ','.join(pypaths))
-vim.command(r"set tags+=%s" % ','.join(tags_paths))
+vim.command(r"autocmd FileType python setlocal path+=%s" % ','.join(pypaths))
+vim.command(r"autocmd FileType python setlocal tags+=%s" % ','.join(tags_paths))
 EOF
 endif
 
