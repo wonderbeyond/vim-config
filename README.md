@@ -15,19 +15,23 @@ wonders vim config repository
 
 ## Get started
 
-Fetch the repo to `~/.vim`:
+### Fetch the repo to `~/.vim`:
 
     $ git clone https://github.com/wonderbeyond/vim-config.git ~/.vim
     $ cd ~/.vim
 
-Install neobundle:
+### Link files(eg. ~/.vimrc):
+
+    $ make link
+
+### Install neobundle:
 
     $ make inst-neobundle
 
-Build YCM:
+### Install all plugins via neobundle:
+
+Open vim, you will see a question "Install bundles now?", select "Yes" to continue.
+
+### Build YCM:
 
     $ make build-ycm
-
-Link files:
-
-    $ make link
