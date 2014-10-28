@@ -112,6 +112,7 @@ set expandtab
 "BEGIN filetype custom---------------------------------
 autocmd FileType make setlocal noexpandtab
 autocmd FileType python setlocal ft=python.django
+au BufRead,BufNewFile SConstruct setlocal ft=python
 "autocmd FileType python setlocal dict=~/.vim/dict/pycomplete-dict
 "autocmd FileType python setlocal omnifunc=pysmell#Complete
 
