@@ -119,6 +119,8 @@ au BufRead,BufNewFile SConstruct setlocal ft=python
 autocmd FileType html,xhtml setlocal ft=htmldjango.html
 autocmd FileType html,xhtml setlocal expandtab shiftwidth=4 softtabstop=4
 
+autocmd FileType javascript setlocal equalprg=js-beautify\ -f\ -
+
 autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
 
 au BufRead,BufNewFile *.txt,*.md setlocal ft=markdown

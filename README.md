@@ -12,6 +12,8 @@ wonders vim config repository
 - libclang-3.5
 - cmake
 - pyflakes: Python source checker(alernatives: pylint, pep8)
+- jshint(via npm)
+- js-beautify(via npm)
 
 ## Get started
 
