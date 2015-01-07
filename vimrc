@@ -47,8 +47,8 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'tomtom/tlib_vim'                 "required by SnipMate
 NeoBundle 'MarcWeber/vim-addon-mw-utils'    "required by SnipMate
-NeoBundle 'garbas/vim-snipmate'             "SnipMate aims to provide support for textual snippets
-"NeoBundle 'SirVer/ultisnips'
+"NeoBundle 'garbas/vim-snipmate'             "SnipMate aims to provide support for textual snippets
+NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'              "provide snippets work with SnipMate
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tmhedberg/matchit'               "using % to match more
@@ -58,6 +58,7 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'airblade/vim-gitgutter'          "shows git diff in the 'gutter' (sign column).
 "NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'othree/eregex.vim'
 
 " You can specify revision/branch/tag.
 "NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -183,6 +184,12 @@ imap <F2> <Esc>:NERDTreeToggle<CR>
 " For tagbar
 nmap <F3> :TagbarToggle<CR>
 imap <F3> <Esc>:TagbarToggle<CR>
+
+" for eregex
+let g:eregex_default_enable = 0
+"nnoremap <leader>/ :call eregex#toggle()<CR>
+nnoremap <leader>s :M/
+nnoremap <leader>S :M?
 
 let g:airline#extensions#tabline#enabled = 1 "enable vim-airline
 
