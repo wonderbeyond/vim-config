@@ -59,6 +59,8 @@ NeoBundle 'airblade/vim-gitgutter'          "shows git diff in the 'gutter' (sig
 "NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'othree/eregex.vim'
+NeoBundle 'AndrewRadev/linediff.vim'
+NeoBundle 'vim-scripts/VOoM'
 
 " You can specify revision/branch/tag.
 "NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
