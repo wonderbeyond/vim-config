@@ -214,8 +214,8 @@ if 'VIRTUAL_ENV' in os.environ:
 pypaths = [ p.replace(' ', r'\ ') for p in sys.path if os.path.isdir(p) ]
 tags_paths = filter(os.path.exists, [os.path.join(p, 'tags') for p in pypaths])
 
-if not tags_paths:
-    warnings.warn('Not any tags found in python `sys.path`, which can be generated with ctags')
+#if not tags_paths:
+#    warnings.warn('Not any tags found in python `sys.path`, which can be generated with ctags')
 
 vim.command(r"autocmd FileType python setlocal path+=%s" % ','.join(pypaths))
 vim.command(r"autocmd FileType python setlocal tags+=%s" % ','.join(tags_paths))
