@@ -17,16 +17,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 ""NeoBundle 'Shougo/neosnippet.vim'
 ""NeoBundle 'Shougo/neosnippet-snippets'
 ""NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kien/ctrlp.vim'
+""NeoBundle 'kien/ctrlp.vim'
 ""NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'jkeylu/vimcdoc'
+""NeoBundle 'jkeylu/vimcdoc'
 "NeoBundle 'FredKSchott/CoVim'
 NeoBundle 'mbriggs/mark.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'wonderbeyond/template.vim'
 NeoBundle 'scrooloose/nerdtree'
 "NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'majutsushi/tagbar'
 "NeoBundle 'szw/vim-ctrlspace'
 
 "Language base support
@@ -40,27 +40,27 @@ NeoBundle 'hdima/python-syntax'
 NeoBundle 'hynek/vim-python-pep8-indent' "Good & Suitable for me
 
 "Dev enhancement
-NeoBundle 'scrooloose/syntastic' "Syntax checking
-NeoBundle 'Crapworks/python_fn.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
+"NeoBundle 'scrooloose/syntastic' "Syntax checking
+"NeoBundle 'Crapworks/python_fn.vim'
+"NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'vim-scripts/Pydiction'           "Tab-complete Python code *using dictionary* (`g:pydiction_location`)
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'tomtom/tlib_vim'                 "required by SnipMate
-NeoBundle 'MarcWeber/vim-addon-mw-utils'    "required by SnipMate
+"NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'tomtom/tlib_vim'                 "required by SnipMate
+"NeoBundle 'MarcWeber/vim-addon-mw-utils'    "required by SnipMate
 "NeoBundle 'garbas/vim-snipmate'             "SnipMate aims to provide support for textual snippets
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'              "provide snippets work with SnipMate
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'tmhedberg/matchit'               "using % to match more
+"NeoBundle 'SirVer/ultisnips'
+"NeoBundle 'honza/vim-snippets'              "provide snippets work with SnipMate
+"NeoBundle 'mattn/emmet-vim'
+"NeoBundle 'tmhedberg/matchit'               "using % to match more
 
 "Utils
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'airblade/vim-gitgutter'          "shows git diff in the 'gutter' (sign column).
+"NeoBundle 'bronson/vim-trailing-whitespace'
+"NeoBundle 'airblade/vim-gitgutter'          "shows git diff in the 'gutter' (sign column).
 "NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'othree/eregex.vim'
-NeoBundle 'AndrewRadev/linediff.vim'
-NeoBundle 'vim-scripts/VOoM'
+"NeoBundle 'scrooloose/nerdcommenter'
+"NeoBundle 'othree/eregex.vim'
+"NeoBundle 'AndrewRadev/linediff.vim'
+"NeoBundle 'vim-scripts/VOoM'
 
 " You can specify revision/branch/tag.
 "NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -118,19 +118,11 @@ au BufRead,BufNewFile SConstruct setlocal ft=python
 "autocmd FileType python setlocal dict=~/.vim/dict/pycomplete-dict
 "autocmd FileType python setlocal omnifunc=pysmell#Complete
 
-autocmd FileType html,xhtml setlocal ft=htmldjango.html
 autocmd FileType html,xhtml setlocal expandtab shiftwidth=4 softtabstop=4
 
 autocmd FileType javascript setlocal equalprg=js-beautify\ -f\ -
 
 autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
-
-au BufRead,BufNewFile *.txt,*.md setlocal ft=markdown
-
-augroup VimCSS3Syntax
-    autocmd!
-    autocmd FileType css setlocal iskeyword+=-
-augroup END
 
 "END filetype custom-----------------------------------
 
@@ -150,12 +142,6 @@ set linebreak
 let g:mapleader = ','
 nmap <C-]> <ESC>g<C-]>
 
-" 保存时自动编译less到css
-function! Wless()
-    write
-    !lessc %:p %:p:r.css
-endfunction
-command Wless call Wless()
 
 " 为一些插件而设置
 
@@ -194,31 +180,13 @@ nnoremap <leader>S :M?
 
 let g:airline#extensions#tabline#enabled = 1 "enable vim-airline
 
-" for YCM, fix conflicts of <tab> key with SnipMate
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 
-" Send python path to vim path
-if has('python')
-python << EOF
-import os, sys, vim
-import warnings
-
-#check if in virtualenv
-if 'VIRTUAL_ENV' in os.environ:
-    envdir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(envdir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-    vim.command("let g:pythonworkon = '%s'" % os.path.basename(envdir))
-
-pypaths = [ p.replace(' ', r'\ ') for p in sys.path if os.path.isdir(p) ]
-tags_paths = filter(os.path.exists, [os.path.join(p, 'tags') for p in pypaths])
-
-if not tags_paths:
-    warnings.warn('Not any tags found in python `sys.path`, which can be generated with ctags')
-
-vim.command(r"autocmd FileType python setlocal path+=%s" % ','.join(pypaths))
-vim.command(r"autocmd FileType python setlocal tags+=%s" % ','.join(tags_paths))
-EOF
+" Work with tmux, Refer to:
+" http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
 endif
-
